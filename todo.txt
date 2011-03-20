@@ -1,1 +1,12 @@
-get template for admin working, it doesn't work, why is that???
+Views:
+
+- Index
+    the index.
+- Result
+    the page displaying on a successful creation
+    record creation & such.
+- Redirect
+    when someone attempts to visit a shortened url, get the destination url and redirect them.
+
+
+
