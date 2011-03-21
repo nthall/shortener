@@ -1,7 +1,9 @@
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template import Context, loader
 
 def index(request):
-    return HttpResponse("Oh hi, world!")
+    return render_to_response('zombify/index.html')
 
 def result(request):
     return HttpResponse("here's the results page placeholder! PLACEHOLD'd!!!")
