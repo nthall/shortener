@@ -7,7 +7,7 @@
     <h1>Zombify your URL!</h1>
     {% csrf_token %}
     <form action='/result' method='post'>
-      <div><input type='text' style='float:left;' name='target' value='Feed me links!' onfocus='if(this.defaultValue == this.value) this.value=""'></input></div>
+      <div><input type='text' style='float:left;' name='destination_url' value='Feed me links!' onfocus='if(this.defaultValue == this.value) this.value=""'></input></div>
       <div><input type='submit' value='Zombify!' style='float:left;'></div>
     </form>
   </body>
