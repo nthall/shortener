@@ -3,6 +3,17 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import Context, loader, RequestContext
 from zombify.models import Zomburl
 
+def generate_zomburl():
+    pop = 'aurghAURGHaurghAURGHaurghAURGHaurghAURGHaurghAURGHnnnNNN'
+    # eventually add pop2 for brains strings, then randomly choose pop or pop2
+    candidate = ''.join(random.sample(pop, 10))
+    
+    return candidate
+
+def check_zomburl(candidate):
+    c = candidate
+
+
 def index(request):
     return render_to_response('zombify/index.html')
 
