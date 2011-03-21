@@ -4,16 +4,9 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('zombify.views',
-    (r'^$', 'index'),
-    (r'^result$', 'result'),
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    (r'^(?P<zomblink>\w+)$', 'redirect')
-)
-
-urlpatterns += patterns('',
+urlpatterns = patterns('',
+    (r'^$', 'zombify.views.index'),
+    (r'^result$', 'zombify.views.result'),
     (r'^admin/', include(admin.site.urls)),
+    (r'^(?P<zomblink>\w+)$', 'zombify.views.redirect'),
 )
-
