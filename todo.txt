@@ -1,23 +1,5 @@
-Views:
+CSS & TEMPLATES
 
-- Index
-    just needs to be prettified i guess.
-- Result
-#   build app logic:
-#       first, check for a destination url in the db 
-#       if it exists, result = the already-existing Zomburl
-#       if not, create it.
-#           creating a Zomburl:
-#               generate a pattern
-#                   check that it's not already in use
-#                   repeat until you make one that doesn't already exist.
-#                   once you have that, store it!
-    build template for result page
-        modeled loosely on socuteurl, bitly, etc
-- Redirect
-    when someone attempts to visit a shortened url, get the destination url and redirect them.
-        - DON'T FORGET: update stats for that Zomburl (hits & last_accessed)
-    if it doesn't exist, rather than throwing a 404, give a custom error message that links them to the index.
 
 
 SOMEDAY:
