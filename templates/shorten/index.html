@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Shorten your URL!</title>
+    <!--link rel='stylesheet' type='text/css' href='/Users/noahhall/Documents/shortener/shorten/resources/brain.css' /-->
+  </head>
+  <body>
+    <h1>Shorten your URL!</h1>        
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <form action='/result' method='post'>
+      {% csrf_token %}
+      <div><input type='text' style='float:left;' name='destination_url' value='URL goes here' onfocus='if(this.defaultValue == this.value) this.value=""'></input></div>
+      <div><input type='submit' value='Shorten!' style='float:left;'></div>
+    </form>
+  </body>
+</html>

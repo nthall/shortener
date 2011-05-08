@@ -11,10 +11,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'zombify',                      # Or path to database file if using sqlite3.
-        'USER': 'noahhall',                      # Not used with sqlite3.
-        'PASSWORD': 'h4r0ld',                  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/home/dotcloud/shortener.db',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -75,11 +75,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'zombie.urls'
+ROOT_URLCONF = 'shortener.urls'
 
 TEMPLATE_DIRS = (
     
-    '/Users/noahhall/projects/zombie/templates',
+    '/Users/noahhall/projects/shortener/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -92,7 +92,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
-    'zombify'
+    'shorten'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
