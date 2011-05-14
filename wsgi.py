@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append('/home/dotcloud/current/shortener')
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'shortener.settings'
 os.environ['TZ'] = 'America/Los_Angeles'
 import django.core.handlers.wsgi
 djangoapplication = django.core.handlers.wsgi.WSGIHandler()
