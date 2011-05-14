@@ -79,6 +79,7 @@ ROOT_URLCONF = 'shortener.urls'
 
 TEMPLATE_DIRS = (
     
+    '/home/dotcloud/current/templates',
     '/Users/noahhall/projects/shortener/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
