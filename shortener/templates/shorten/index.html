@@ -6,7 +6,7 @@
   <body>
     <h1>Shorten your URL!</h1>        
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    <div style="margin-right:auto; margin-left:auto; width:40%;">
+    <div style="margin-right:auto; margin-left:auto; width:350px">
     <form action='/result' method='post'>
       {% csrf_token %}
       <div><input type='text' size="50" style='float:left' name='destination_url' value='URL goes here' onfocus='if(this.defaultValue == this.value) this.value=""'></input></div>
