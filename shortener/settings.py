@@ -75,7 +75,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'current.urls'
+ROOT_URLCONF = 'shortener.urls'
 
 TEMPLATE_DIRS = (
     
