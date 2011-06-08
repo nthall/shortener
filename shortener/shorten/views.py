@@ -6,8 +6,8 @@ from django.template import Context, loader, RequestContext
 from shorten.models import UrlPair
 
 def generate_code():
-    pop = 'aurghAURGHaurghAURGHaurghAURGHaurghAURGHaurghAURGHnnnNNN'
-    candidate = ''.join(random.sample(pop, 10))
+    pop = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789'
+    candidate = ''.join(random.sample(pop, 5))
     return candidate
 
 def check_code(candidate):
