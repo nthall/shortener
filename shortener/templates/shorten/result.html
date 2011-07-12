@@ -1,15 +1,16 @@
 <html>    
     <head>
-        <title>Great Success!</title>
+        <title>Short!</title>
         <link rel='stylesheet' type='text/css' href='http://www.shortener.dotcloud.com/static/short.css'>
     </head>
     <body>
-    <h1>Great Success!</h1>
+    <h1>Short!!</h1>
     {% if alert %}<p class="alert">{{ alert }}</p>{% endif %}
-    <div><span>Your url: </span><a href="{{ url.destination_url }}">{{ url.destination_url }}</a><br><br>
+    <div><span>Your url: </span><br><a href="{{ url.destination_url }}">{{ url.destination_url }}</a><br><br>
     <span>got shortened into:</span><br><br>
     <a href="http://l.nthall.com/{{ url.code }}">http://l.nthall.com/{{ url.code }}</a>
     </div>
+    <div><a href="http://l.nthall.com/">Shorten more links, I guess, if you want.</a></div>
 
 <!-- begin google analytics code -->
 <script type="text/javascript">
