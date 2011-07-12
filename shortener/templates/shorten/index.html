@@ -4,7 +4,9 @@
     <link rel='stylesheet' type='text/css' href='http://www.shortener.dotcloud.com/static/short.css'>
   </head>
   <body>
-    <h1>Hey, that URL looks pretty long. Maybe I could shorten it for you?</h1>        
+    <h1>Hey, that URL looks pretty long.</h1>
+    <br>
+    <h2>Maybe I could shorten it for you?</h2> 
     {% if error_message %}<p class="err-msg">{{ error_message }}</p>{% endif %}
     <div style="margin-right:auto; margin-left:auto; width:345px">
     <form action='/result' method='post'>
