@@ -2,7 +2,6 @@ CSS & TEMPLATES:
 - make result page look more like socuteURL's
   - include easy clipboard copy
 - both pages need a little bottom menu w/ a short about page, i guess
-- link to the blog once it exists
 
 VIEWS/MODELS:
 - for bonus points, create a new model that tracks http referrer for each hit that a shortcode gets, or figure out a way to tie it in to GA, or both.
