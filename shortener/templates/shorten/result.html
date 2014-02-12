@@ -1,33 +1,13 @@
-<html>    
-    <head>
-        <title>Short!</title>
-        <link rel='stylesheet' type='text/css' href='http://www.shortener.dotcloud.com/static/short.css'>
-    </head>
-    <body>
+{% extends "shorten/base.html" %}  
+  {% block page_title %}
     <h1>Short!!</h1>
+  {% endblock %}
+
+  {% block body %}
     {% if alert %}<p class="alert">{{ alert }}</p>{% endif %}
     <div><span>Your url: </span><br><a href="{{ url.destination_url }}">{{ url.destination_url }}</a><br><br>
     <span>got shortened into:</span><br><br>
     <a href="http://l.nthall.com/{{ url.code }}">http://l.nthall.com/{{ url.code }}</a>
     </div>
     <div><a href="http://l.nthall.com/">Shorten more links, I guess, if you want.</a></div>
-
-<!-- begin google analytics code -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-16949601-1']);
-  _gaq.push(['_setDomainName', '.nthall.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-  </script>
-<!-- end google analytics code -->
-
-  </body>
-</html>
+  {% endblock %}
