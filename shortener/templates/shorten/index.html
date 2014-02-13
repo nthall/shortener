@@ -5,11 +5,18 @@
   {% endblock %}
 
   {% block body %}
-    <div style="margin-right:auto; margin-left:auto; width:345px">
-    <form action='/result' method='post'>
-      {% csrf_token %}
-      <div><input type='text' size="50" style='float:left' name='destination_url' value='URL goes here' onfocus='if(this.defaultValue == this.value) this.value=""'></input></div>
-      <div><input type='submit' value='Shorten!' style='float:left;'></div>
-    </form>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4">
+        <br>
+        <form class='form-inline' action='/result' method='post'>
+          {% csrf_token %}
+          <div class='input-group'>
+            <input type='text' class='form-control' name='destination_url' value='URL goes here' onfocus='if(this.defaultValue == this.value) this.value=""'>
+            <span class="input-group-btn">
+              <button class='btn btn-inverse'>Shorten!</button>
+            </span>
+          </div>
+        </form>
+      </div>
     </div>
   {% endblock %}

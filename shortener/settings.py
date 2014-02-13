@@ -1,4 +1,4 @@
-# Django settings for zombie project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -46,12 +46,12 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/var/www/shortener/static/'
+#MEDIA_ROOT = '/var/www/shortener/static/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/static/'
+#MEDIA_URL = '/static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -93,6 +93,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    #'django.contrib.staticfiles',
     'shorten'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -101,6 +102,11 @@ INSTALLED_APPS = (
 ALLOWED_HOSTS = (
     'l.nthall.com'
 )
+
+#BASE = os.path.abspath(os.path.dirname(__file__))
+STATICFILES_DIRS = ("/var/www/shortener/static/",)
+STATIC_URL = 'http://l.nthall.com/static/'
+STATIC_ROOT = ''
 
 LOGGING = {
     'version': 1,
