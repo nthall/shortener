@@ -1,12 +1,13 @@
 {% extends "shorten/base.html" %}  
   {% block page_title %}
-    <h1>Hey, that URL looks pretty long.</h1>
-    <h2>Maybe I could shorten it for you?</h2> 
+    <div class="well">
+      <h1>Hey, that URL looks pretty long.</h1>
+      <h2>Maybe I could shorten it for you?</h2> 
   {% endblock %}
 
   {% block body %}
     <div class="row">
-      <div class="col-lg-4 col-lg-offset-4">
+      <div class="col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
         <br>
         <form class='form-inline' action='/result' method='post'>
           {% csrf_token %}
@@ -18,5 +19,6 @@
           </div>
         </form>
       </div>
+    </div>
     </div>
   {% endblock %}

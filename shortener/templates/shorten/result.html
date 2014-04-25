@@ -4,10 +4,32 @@
   {% endblock %}
 
   {% block body %}
-    {% if alert %}<p class="alert">{{ alert }}</p>{% endif %}
-    <div><span>Your url: </span><br><a href="{{ url.destination_url }}">{{ url.destination_url }}</a><br><br>
-    <span>got shortened into:</span><br><br>
-    <a href="http://l.nthall.com/{{ url.code }}">http://l.nthall.com/{{ url.code }}</a>
+    
+    <div class='row text-center'>
+      <div class='col-sm-6 col-sm-offset-3'>
+
+        {% if alert %}
+          <p><strong>{{ alert }}</strong></p>
+        {% endif %}
+
+        <div class="row">
+          <div class="col-sm-6 text-right">
+            <p><strong>Your url:</strong></p>
+          </div>
+          <div class="col-sm-6 text-left">
+            <a href="{{ url.destination_url }}">{{ url.destination_url }}</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 text-right">
+            <p><strong>got shortened into:</strong></p>
+          </div>
+          <div class="col-sm-6 text-left">
+            <a href="http://l.nthall.com/{{ url.code }}">http://l.nthall.com/{{ url.code }}</a>
+          </div>
+        </div>
+        <a class='btn btn-inverse' href="http://l.nthall.com/">Again!</a></div>
+      </div>
     </div>
-    <div><a href="http://l.nthall.com/">Shorten more links, I guess, if you want.</a></div>
+
   {% endblock %}

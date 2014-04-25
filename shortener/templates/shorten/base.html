@@ -11,22 +11,26 @@
     <div class="container">
 
       <div id="homelink">
-        <a class='btn inverse' href='//nthall.com'>Noah did this</a>
+        <a class='btn btn-inverse' href='//nthall.com'>Noah did this</a>
       </div>
 
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          {% block page_title %}
-            <h1>Base page</h1>
-          {% endblock %}
+      {% block contents %}
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            {% block page_title %}
+              <h1>Base page</h1>
+            {% endblock %}
 
-          {% if error_message %}<p class="err-msg">{{ error_message }}</p>{% endif %}
+            {% if error_message %}
+              <p class="alert alert-danger err-msg">{{ error_message }}</p>
+            {% endif %}
+          </div>
         </div>
+    
+        {% block body %} {% endblock %}
+    
       </div>
-  
-      {% block body %} {% endblock %}
-  
-    </div>
+    {% endblock %}
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-16949601-1']);
