@@ -12,4 +12,4 @@ urlpatterns = patterns('',
     (r'^(?P<code>\w+)$', 'shorten.views.send_away'),
 )
 
-#urlpatterns += staticfiles_urlpatterns()
+urlpatterns += staticfiles_urlpatterns()

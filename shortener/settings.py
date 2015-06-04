@@ -4,7 +4,6 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
     ('Noah', 'noah.t.hall@gmail.com')
 )
 
@@ -78,8 +77,10 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'shortener.urls'
 
+WSGI_APPLICATION = 'shortener.wsgi.application'
+
 TEMPLATE_DIRS = (
-    '/var/www/shortener/shortener/templates'
+    '/var/www/shortener/shortener/templates',
     
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
@@ -92,21 +93,20 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.admin',
-    #'django.contrib.staticfiles',
+    'django.contrib.admin.apps.SimpleAdminConfig',
+    'django.contrib.staticfiles',
+    'django.contrib.admindocs',
     'shorten'
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 )
 
 ALLOWED_HOSTS = (
     'l.nthall.com'
 )
 
-#BASE = os.path.abspath(os.path.dirname(__file__))
-STATICFILES_DIRS = ("/var/www/shortener/static/",)
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+STATICFILES_DIRS = ("/var/www/shortener/shortener/static/",)
 STATIC_URL = 'http://l.nthall.com/static/'
-STATIC_ROOT = ''
+STATIC_ROOT = ('/var/www/shortener/static/')
 
 LOGGING = {
     'version': 1,

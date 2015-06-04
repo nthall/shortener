@@ -47,6 +47,7 @@ def result(request):
     except:
         return render_to_response('shorten/index.html', {'error_message': "Looks like you didn't enter a valid link. If at first you don't succeed..."}, context_instance=RequestContext(request)) 
     else:
+      #todo: check for empty first, yeesh. and smarter protocol check.
         if dest_url[:7] != 'http://':
             dest_url = 'http://' + dest_url
         try:
