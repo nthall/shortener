@@ -17,13 +17,15 @@
       {% block contents %}
         <div class="row">
           <div class="col-lg-12 text-center">
-            {% block page_title %}
-              <h1>Base page</h1>
-            {% endblock %}
+            <div class="well">
+              {% block page_title %}
+                <h1>Base page</h1>
+              {% endblock %}
 
-            {% if error_message %}
-              <p class="alert alert-danger err-msg">{{ error_message }}</p>
-            {% endif %}
+              {% if error_message %}
+                <p class="alert alert-danger err-msg">{{ error_message }}</p>
+              {% endif %}
+            </div>
           </div>
         </div>
     

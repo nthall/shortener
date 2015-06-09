@@ -39,13 +39,13 @@ def new_code():
 #            result(request, match, 1)
 
 def index(request):
-    return render_to_response('shorten/index.html', context_instance=RequestContext(request))
+    return render_to_response('index.html', context_instance=RequestContext(request))
 
 def result(request):
     try:
         dest_url = request.POST['destination_url']
     except:
-        return render_to_response('shorten/index.html', {'error_message': "Looks like you didn't enter a valid link. If at first you don't succeed..."}, context_instance=RequestContext(request)) 
+        return render_to_response('index.html', {'error_message': "Looks like you didn't enter a valid link. If at first you don't succeed..."}, context_instance=RequestContext(request)) 
     else:
       #todo: check for empty first, yeesh. and smarter protocol check.
         if dest_url[:7] != 'http://':
@@ -55,18 +55,18 @@ def result(request):
         except (KeyError, UrlPair.DoesNotExist):
             new_url = UrlPair(code=new_code(), destination_url = dest_url, added=datetime.now())
             new_url.save()
-            return render_to_response('shorten/result.html', {'url': new_url})
+            return render_to_response('result.html', {'url': new_url})
         except:
             raise Http404
         else:
-            return render_to_response('shorten/result.html', {'url': match, 'alert': "This url has already been shortened! I guess great minds link alike!"}) 
+            return render_to_response('result.html', {'url': match, 'alert': "This url has already been shortened! I guess great minds link alike."}) 
     
 
 def send_away(request, code):
     try:
         u = UrlPair.objects.get(code__exact=code)
     except (KeyError, UrlPair.DoesNotExist):
-        return render_to_response('shorten/index.html', {'error_message': "Oops, that's not a valid shortcode. Maybe you'd like to shorten something else?"}, context_instance=RequestContext(request))
+        return render_to_response('index.html', {'error_message': "Oops, that's not a valid shortcode. Maybe you'd like to shorten something else?"}, context_instance=RequestContext(request))
     except:
         raise Http404
     else:

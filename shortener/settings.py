@@ -1,10 +1,24 @@
 import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Noah', 'noah.t.hall@gmail.com')
+)
+
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.admin',
+    'django.contrib.staticfiles',
+    'django.contrib.admindocs',
+    'shorten'
 )
 
 MANAGERS = ADMINS
@@ -13,10 +27,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': '/var/www/shortener/shortener.db',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -58,7 +68,7 @@ USE_L10N = True
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'ol3z2bibo!q44%624##54dxmv*96dw@!xi++5atmw90q-tec6-'
+SECRET_KEY = os.environ["SHORTENER_SECRET_KEY"]
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -72,40 +82,39 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'shortener.urls'
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
 WSGI_APPLICATION = 'shortener.wsgi.application'
-
-TEMPLATE_DIRS = (
-    '/var/www/shortener/shortener/templates',
-    
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.admin.apps.SimpleAdminConfig',
-    'django.contrib.staticfiles',
-    'django.contrib.admindocs',
-    'shorten'
-)
 
 ALLOWED_HOSTS = (
     'l.nthall.com'
 )
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 STATICFILES_DIRS = ("/var/www/shortener/shortener/static/",)
-STATIC_URL = 'http://l.nthall.com/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = ('/var/www/shortener/static/')
 
 LOGGING = {
@@ -135,19 +144,20 @@ LOGGING = {
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
+            'filters': ['require_debug_false'],
             'level': 'ERROR',
             'propagate': True,
         },
         'django': {
             'handlers': ['logfile'],
-            'level': 'ERROR',
-            'propagate': False,
+            'level': 'DEBUG',
+            'propagate': True,
         },
         # The actual app.
         'shortener': {
             'handlers': ['logfile'],
-            'level': 'WARNING', # Or maybe INFO or DEBUG
-            'propagate': False
+            'level': 'DEBUG', # Or maybe INFO or DEBUG
+            'propagate': True
         },
     },
 }
