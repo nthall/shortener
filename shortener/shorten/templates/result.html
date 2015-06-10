@@ -5,30 +5,29 @@
   {% endblock %}
 
   {% block body %}
-    <div class='row text-center'>
-      <div class='col-sm-6 col-sm-offset-3'>
 
         {% if alert %}
           <p><strong>{{ alert }}</strong></p>
         {% endif %}
 
-        <div class="row">
-          <div class="col-sm-6 text-right">
-            <p><strong>Your url:</strong></p>
+        <form class='form-horizontal'>
+            <div class='form-group'>
+                <label class='col-sm-4 control-label'>Your url:</label>
+                <div class='col-sm-8'>
+                    <p class='form-control-static'>
+                        <a href="{{ url.destination_url }}">{{ url.destination_url }}</a>
+                    </p>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-sm-4 control-label'>got shortened into:</label>
+                <div class='col-sm-8'>
+                    <p class='form-control-static'>
+                        <a href="http://l.nthall.com/{{ url.code }}">http://l.nthall.com/{{ url.code }}</a>
+                    </p>
+                </div>
           </div>
-          <div class="col-sm-6 text-left">
-            <a href="{{ url.destination_url }}">{{ url.destination_url }}</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 text-right">
-            <p><strong>got shortened into:</strong></p>
-          </div>
-          <div class="col-sm-6 text-left">
-            <a href="http://l.nthall.com/{{ url.code }}">http://l.nthall.com/{{ url.code }}</a>
-          </div>
-        </div>
-        <a class='btn btn-inverse' href="http://l.nthall.com/">Again!</a></div>
-      </div>
+        </form>
+        <a class='btn btn-inverse' href="http://l.nthall.com/">Again!</a>
     </div>
   {% endblock %}

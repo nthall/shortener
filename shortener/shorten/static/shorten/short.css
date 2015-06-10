@@ -1,0 +1,39 @@
+body {
+    padding-top: 150px;
+    background-image: url('/static/whoa-space.jpg');
+    background-size: stretch;
+}
+
+#homelink {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+}
+
+.btn.btn-inverse {
+    background-color: #B5B5C4;
+    color: #742A38;
+}
+
+.btn.btn-inverse:hover {
+    background-color: #12101A;
+    color: #9B576D;
+}
+
+h1, h2, a, span, p, .alert.alert-warning p {
+    color: #742A38;
+}
+
+strong, label {
+    color: #1061cb;
+}
+
+.backdrop, .results{
+    background-color: rgba(181, 181, 196, 0.7);
+    border-color: gray;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
