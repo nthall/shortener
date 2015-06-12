@@ -25,8 +25,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/var/www/shortener/shortener.db',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/var/www/shortener/shortener.db',
     }
 }
 
@@ -55,12 +55,12 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-#MEDIA_ROOT = '/var/www/shortener/static/'
+# MEDIA_ROOT = '/var/www/shortener/static/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-#MEDIA_URL = '/static/'
+# MEDIA_URL = '/static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -140,7 +140,7 @@ LOGGING = {
              '()': 'django.utils.log.RequireDebugFalse'
          }
      },
-   
+
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
@@ -156,7 +156,7 @@ LOGGING = {
         # The actual app.
         'shortener': {
             'handlers': ['logfile'],
-            'level': 'DEBUG', # Or maybe INFO or DEBUG
+            'level': 'DEBUG',
             'propagate': True
         },
     },
